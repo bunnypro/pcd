@@ -8,7 +8,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && mv phpunit /bin/phpunit \
     && ln -s /bin/phpunit /usr/local/lib/php/phpunit \
     && apk update --no-cache \
-    && apk add --no-cache $PHPIZE_DEPS \
+    && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
     && pecl install xdebug-2.6.0 \
     && docker-php-ext-enable xdebug \
-    && apk del --no-cache --purge $PHPIZE_DEPS
+    && apk del --no-cache .build-deps \
+    && rm -rf /tmp/pear
