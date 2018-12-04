@@ -2,7 +2,5 @@
 
 set -e
 
-for tag in {latest}; do
-    docker tag $IMAGE_NAME bunnypro/php-cli-dev:${tag}
-    docker push bunnypro/php-cli-dev:${tag}
-done
+docker tag $IMAGE_NAME bunnypro/php-cli-dev:latest
+docker push bunnypro/php-cli-dev:latest
