@@ -1,6 +1,0 @@
-#!/bin/bash
-
-set -e
-
-docker tag $IMAGE_NAME bunnypro/php-cli-dev:latest
-docker push bunnypro/php-cli-dev:latest
