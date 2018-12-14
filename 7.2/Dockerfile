@@ -11,5 +11,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
     && pecl install xdebug-2.6.1 \
     && docker-php-ext-enable xdebug \
+    && echo "xdebug.profiler_enable_trigger = 1;" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && apk del --no-cache .build-deps \
     && rm -rf /tmp/pear
