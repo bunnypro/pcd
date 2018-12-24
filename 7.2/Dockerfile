@@ -8,7 +8,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && mv phpunit /bin/phpunit \
     && ln -s /bin/phpunit /usr/local/lib/php/phpunit \
     && apk update --no-cache \
-    && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
+    && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS zlib-dev \
+    && docker-php-ext-install zip \
     && pecl install xdebug-2.6.1 \
     && docker-php-ext-enable xdebug \
     && echo "xdebug.profiler_enable_trigger = 1;" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
