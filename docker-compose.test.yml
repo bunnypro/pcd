@@ -1,0 +1,7 @@
+version: '3'
+services:
+ sut:
+  build: .
+  volumes:
+   - ../test.sh:/tmp/test.sh
+  command: /tmp/tests.sh
