@@ -10,7 +10,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && apk add --no-cache libzip-dev \
     && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS zlib-dev \
     && docker-php-ext-install zip \
-    && pecl install xdebug-2.7.0RC1 \
+    && pecl install xdebug-2.7.0RC2 \
     && docker-php-ext-enable xdebug \
     && apk del --no-cache .build-deps \
     && rm -rf /tmp/pear
