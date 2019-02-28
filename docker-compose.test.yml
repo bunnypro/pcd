@@ -3,5 +3,5 @@ services:
  sut:
   build: .
   volumes:
-   - ../test.sh:/tmp/test.sh
+   - test.sh:/tmp/test.sh
   command: /tmp/tests.sh
