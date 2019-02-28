@@ -1,4 +1,4 @@
-FROM php:7.1-cli-alpine
+FROM php:7.2-cli-alpine
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=bin --filename=composer \
@@ -9,6 +9,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && apk update --no-cache \
     && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS zlib-dev \
     && docker-php-ext-install zip \
+    && pecl install swoole \
     && pecl install xdebug-2.6.1 \
     && docker-php-ext-enable xdebug \
     && apk del --no-cache .build-deps \
