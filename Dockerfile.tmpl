@@ -1,4 +1,4 @@
-FROM php:7.1-cli-alpine
+FROM php:<VERSION>-cli-alpine
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=bin --filename=composer \
