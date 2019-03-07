@@ -7,12 +7,12 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && chmod +x phpunit \
     && mv phpunit /bin/phpunit \
     && apk update --no-cache \
-    && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS zlib-dev \
+    && apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
     && apk add --no-cache libzip-dev libstdc++ \
     && docker-php-ext-install zip \
     && pecl install swoole \
     && docker-php-ext-enable swoole \
-    && pecl install xdebug-2.7.0RC2 \
+    && pecl install xdebug-2.7.0 \
     && docker-php-ext-enable xdebug \
     && apk del --no-cache .build-deps \
     && rm -rf /tmp/pear
