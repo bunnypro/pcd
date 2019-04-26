@@ -3,7 +3,7 @@ FROM php:<VERSION>-cli-alpine
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=bin --filename=composer \
     && php -r "unlink('composer-setup.php');" \
-    && wget -O phpunit https://phar.phpunit.de/phpunit-7.phar \
+    && wget -O phpunit https://phar.phpunit.de/phpunit-8.phar \
     && chmod +x phpunit \
     && mv phpunit /bin/phpunit \
     && apk update --no-cache \
