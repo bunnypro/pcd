@@ -12,7 +12,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && docker-php-ext-install zip \
     && pecl install swoole \
     && docker-php-ext-enable swoole \
-    && pecl install xdebug-2.8.0 \
+    && pecl install xdebug-2.9.0 \
     && docker-php-ext-enable xdebug \
     && apk del --no-cache .build-deps \
     && rm -rf /tmp/pear
